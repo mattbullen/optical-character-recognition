@@ -1,2 +1,3 @@
-# optical-character-recognition
-Telerik.com app: Kendo UI, ocrad.js OCR
+## Mobile Optical Character Recognition
+
+In the works . . . .
