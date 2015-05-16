@@ -7,11 +7,9 @@
         });
 
         window.listview = kendo.observable({
-
             reset: function () {
                 window.location.reload();
             }
-
         });
 
         function draw() {
@@ -59,11 +57,9 @@
                 }
 
                 if (e.touches && e.touches.length === 1) {
-                    //if (e.touches.length == 1) {
                     var touch = e.touches[0];
                     var x = touch.pageX - touch.target.offsetLeft;
                     var y = touch.pageY - touch.target.offsetTop;
-                    //}
                 } else {
                     var x = e.clientX - rect.left;
                     var y = e.clientY - rect.top;
@@ -394,7 +390,7 @@
                     key: "zu-ZU",
                     value: "Zulu"
                 }
-        ];
+        	];
 
             for (var i in culture) {
                 var obj = culture[i];
