@@ -8,6 +8,8 @@
         <title>OCR Translation App</title>
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="description" content="OCR Translation App Demo">
+		<meta name="author" content="Matthew Bullen">
         
         <!-- CSS -->
         <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
@@ -25,34 +27,31 @@
         
     </head>
     
-    <body id="body">
+    <body>
         
         <div data-role="view" data-model="listview">
             
-            <h3 style="font-size: 24px; margin: 12px 0px;">OCR Translation Demo</h3>
+            <h3 style="font-size: 24px; margin: 12px 0px;">OCR Translation</h3>
             
             <canvas id="c"></canvas>
             
-            <div id="nav-0" data-role="navbar" style="height: 56px; width: 100%; margin-top: -5px;">
+            <div id="nav-0" data-role="navbar" style="height: 56px; width: 100%; margin-top: -5px; border-right: none; border-left: none;">
                 <input id="ocr-result" type="text" placeholder="Type or draw a word!" data-align="left">
                 <button id="translate" data-role="button" data-align="left" data-bind="click: translate">Translate</button>
                 <button id="reset" data-role="button" data-align="left" data-bind="click: reset">Reset</button>
             </div>
             
-            <div id="nav-1" data-role="navbar" style="height: 40px; width: 100%; margin-top: 0px; border-top: none;">
-            
+            <div id="nav-1" data-role="navbar" style="height: 40px; width: 100%; margin-top: 0px; border-top: none; border-right: none; border-left: none;">
                 <select id="sourceLanguage" name="sourceLanguage" data-align="left">
-                    <option selected="selected" value="en-GB">From</option>
+                    <option selected="selected" value="en-GB">From (Default: English)</option>
                 </select>
                 <select id="destinationLanguage" name="destinationLanguage" data-align="right">
-                    <option selected="selected" value="en-GB">To</option>
+                    <option selected="selected" value="en-GB">To (Default: English)</option>
                 </select>
-            
             </div>
             
-            <h4 id="original">Original: . . .</h4>
-            <h4 id="translated">Translated: . . .</h4>
-            
+            <h4 id="original">Original . . .</h4>
+            <h4 id="translated">Translated . . .</h4>  
             <div id="notification" style="font-size: 18px;"></div>
             
         </div>

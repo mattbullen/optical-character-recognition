@@ -1,14 +1,14 @@
-(function() {
+(function () {
 
-    document.addEventListener("deviceready", function() {
+    document.addEventListener("deviceready", function () {
 
-        $(function() {
+        $(function () {
             FastClick.attach(document.body);
         });
 
         window.listview = kendo.observable({
 
-            reset: function() {
+            reset: function () {
                 window.location.reload();
             }
 
@@ -394,7 +394,7 @@
                     key: "zu-ZU",
                     value: "Zulu"
                 }
-      		];
+        ];
 
             for (var i in culture) {
                 var obj = culture[i];
@@ -416,13 +416,7 @@
             }
         }
 
-        function toggleResponseMessage(id, text, fade, color) {
-            if (!color || color === "blue") {
-                var color = "rgb(66, 139, 202)";
-            }
-            if (color === "red") {
-                var color = "rgb(175, 36, 38)";
-            }
+        function toggleResponseMessage(id, text) {
             var message = $("#" + id).html(text).css({
                 "position": "absolute",
                 "top": "0px",
@@ -435,22 +429,20 @@
                 "line-height": "56px",
                 "color": "#ffffff",
                 "text-align": "center",
-                "background-color": color,
+                "background-color": "rgb(16, 196, 178)"
             });
             message.show();
-            if (fade === true) {
-                window.setTimeout(function () {
-                    message.hide();
-                }, 2500);
-            }
+            window.setTimeout(function () {
+                message.hide();
+            }, 2500);
             return false;
         }
 
         function translate() {
+            $("#translate").removeClass("km-state-active");
             var text = $("#ocr-result").val();
             if (!text || text === "") {
-				toggleResponseMessage("notification", "Please enter a word to translate!", true, "red");
-                //$("#translate").removeClass("km-state-active");
+                toggleResponseMessage("notification", "Please enter a word to translate!"); 
                 return false;
             }
             var translationURI = "http://mymemory.translated.net/api/get?q=";
@@ -463,8 +455,8 @@
                 url: fullURI,
                 dataType: "json",
                 success: function (data) {
-                    $("#original").html("Original: " + text);
-                    $("#translated").html("Translated: " + data.responseData.translatedText);
+                    $("#original").fadeOut(0).html("Original: " + text).fadeIn();
+                    $("#translated").fadeOut(0).html("Translated: " + data.responseData.translatedText).fadeIn();
                 }
             });
         }
@@ -475,30 +467,37 @@
 
         function sizeElements() {
             var w = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-            console.log(w);
-            w47 = w * 0.47;
-            w25 = w * 0.25;
-            w18 = w * 0.18;
-            w2 = w * 0.02;
+            var w47 = w * 0.47;
+            var w465 = w * 0.465;
+            var w2675 = w * 0.2675;
+            var w18 = w * 0.18;
+            var w02 = w * 0.02;
+            var w015 = w * 0.01333;
             $("h3").css({
                 "font-family": "Museo, Equip, Arial, sans-serif !important",
                 "text-align": "center"
             });
             $("#ocr-result").css({
                 "width": w47 + "px",
-                "margin-right": w2 + "px",
-                "padding": "10px 5px",
+                "margin-right": w02 + "px",
+                "padding": "10px 5px 9px 5px",
                 "font-size": "1rem",
                 "color": "#000000"
             });
             $("#translate").css({
-                "width": w25 + "px",
-                "margin-right": w2 + "px",
+                "width": w2675 + "px",
+                "margin-right": w015 + "px",
                 "text-align": "center"
             });
             $("#reset").css({
                 "width": w18 + "px",
                 "text-align": "center"
+            });
+            $("#sourceLanguage").css({
+                "width": w465 + "px"
+            });
+            $("#destinationLanguage").css({
+                "width": w465 + "px"
             });
             $("#original").css({
                 "width": w47 + "px"
