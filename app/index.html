@@ -1,20 +1,62 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-    <title></title>
-    <meta charset="utf-8">
-
-    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
-    <link href="styles/main.css" rel="stylesheet">
-
-    <script src="cordova.js"></script>
-    <script src="kendo/js/jquery.min.js"></script>
-    <script src="kendo/js/kendo.mobile.min.js"></script>
-    <script src="scripts/app.js"></script>
-</head>
-<body>
-    <div data-role="view">
-
-    </div>
-</body>
+    
+    <head>
+        
+        <!-- Meta -->
+        <title>OCR Translation App</title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+        
+        <!-- CSS -->
+        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
+        <link href="kendo/styles/kendo.common.min.css" rel="stylesheet">
+        <link href="styles/main.css" rel="stylesheet">
+	
+        <!-- JS -->
+        <script src="cordova.js"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/kendo.mobile.min.js"></script>
+        <script src="kendo/js/kendo.ui.core.min.js"></script>
+        <script src="scripts/fastclick.js"></script>
+        <script src="scripts/ocrad.js"></script>
+        <script src="scripts/app.js"></script>
+        
+    </head>
+    
+    <body id="body">
+        
+        <div data-role="view" data-model="listview">
+            
+            <h3 style="font-size: 24px; margin: 12px 0px;">OCR Translation Demo</h3>
+            
+            <canvas id="c"></canvas>
+            
+            <div id="nav-0" data-role="navbar" style="height: 56px; width: 100%; margin-top: -5px;">
+                <input id="ocr-result" type="text" placeholder="Type or draw a word!" data-align="left">
+                <button id="translate" data-role="button" data-align="left" data-bind="click: translate">Translate</button>
+                <button id="reset" data-role="button" data-align="left" data-bind="click: reset">Reset</button>
+            </div>
+            
+            <div id="nav-1" data-role="navbar" style="height: 40px; width: 100%; margin-top: 0px; border-top: none;">
+            
+                <select id="sourceLanguage" name="sourceLanguage" data-align="left">
+                    <option selected="selected" value="en-GB">From</option>
+                </select>
+                <select id="destinationLanguage" name="destinationLanguage" data-align="right">
+                    <option selected="selected" value="en-GB">To</option>
+                </select>
+            
+            </div>
+            
+            <h4 id="original">Original: . . .</h4>
+            <h4 id="translated">Translated: . . .</h4>
+            
+            <div id="notification" style="font-size: 18px;"></div>
+            
+        </div>
+    	
+    </body>
+    
 </html>
