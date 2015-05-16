@@ -2,6 +2,8 @@
 
     document.addEventListener("deviceready", function () {
 
+		feedback.initialize("77a25fc0-fb6b-11e4-9559-574f22721249");
+
         $(function () {
             FastClick.attach(document.body);
         });
