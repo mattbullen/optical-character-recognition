@@ -454,7 +454,11 @@
                 dataType: "json",
                 success: function (data) {
                     $("#original").fadeOut(0).html("Original: " + text).fadeIn();
-                    $("#translated").fadeOut(0).html("Translated: " + data.responseData.translatedText).fadeIn();
+                    var str = data.responseData.translatedText;
+                    if (str[str.length - 1] === ".") {
+                        str = str.slice(0, -1);
+                    }
+                    $("#translated").fadeOut(0).html("Translated: " + str).fadeIn();
                 }
             });
         }
